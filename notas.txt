@@ -3,3 +3,39 @@ Layout:
 
 https://www.figma.com/file/hyovBMIxwrn2Bb5MZLrxHL/DSMovie4?node-id=2%3A25
 
+### Passo: Implantação no Heroku
+- Criar app no Heroku
+- Provisionar banco Postgres
+- Definir variável APP_PROFILE=prod
+- Conectar ao banco via pgAdmin
+- Criar seed do banco
+
+```bash
+heroku -v
+heroku login
+heroku git:remote -a <nome-do-app>
+git remote -v
+git subtree push --prefix backend heroku main
+```
+
+
+### Passo: implantação no Netlify
+- Deploy básico
+    Build settings
+        Base directory: frontend
+        Build command: CI='' npm run build
+        Publish directory: frontend/build
+        Deploy log visibility: Logs are public
+        Builds: Active
+
+- Arquivo _redirects
+```
+/* /index.html 200
+```
+
+- Configurações adicionais
+  - Site settings -> Domain Management: (colocar o nome que você quiser)
+  - Deploys -> Trigger deploy
+
+
+## PARABÉNS!
