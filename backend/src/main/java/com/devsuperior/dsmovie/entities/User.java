@@ -12,25 +12,24 @@ public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idLong;
+	private Long id;
 	private String email;
 	
 	public User() {
 		
 	}
 
-	public User(Long idLong, String email) {
-		super();
-		this.idLong = idLong;
+	public User(Long id, String email) {
+		this.id = id;
 		this.email = email;
 	}
 
 	public Long getIdLong() {
-		return idLong;
+		return id;
 	}
 
 	public void setIdLong(Long idLong) {
-		this.idLong = idLong;
+		this.id = idLong;
 	}
 
 	public String getEmail() {
