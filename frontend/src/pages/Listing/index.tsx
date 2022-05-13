@@ -29,9 +29,13 @@ function Listing() {
       });
   }, [pageNumber]); // 2o. parametro vazio [] executa somente no carregamento do componente
 
+  const handlePageChange = (newPageNumber: number) => {
+    setPageNumber(newPageNumber);
+  };
+
   return (
     <>
-      <Pagination />
+      <Pagination page={page} onChange={handlePageChange} />
       <div className="container">
         <div className="row">
           {page.content.map((movie) => (
